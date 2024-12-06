@@ -1,0 +1,39 @@
+[project]
+name = "legal-chatbot-langgraph"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "dz-mykolas", email = "dz.mykolas@gmail.com" }
+]
+dependencies = [
+    "langgraph>=0.2.45",
+    "langchain-openai>=0.2.6",
+    "langsmith>=0.1.141",
+    "six>=1.16.0",
+    "python-dotenv>=1.0.1",
+    "beautifulsoup4>=4.12.3",
+    "langchain-experimental>=0.3.3",
+    "langchain-community>=0.3.9",
+    "langchain-text-splitters>=0.3.2",
+    "faiss-cpu>=1.9.0.post1",
+    "colorama>=0.4.6",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/legal_chatbot_langgraph"]
+
+[tool.rye.scripts]
+start = "python src/legal_chatbot_langgraph/main.py"
