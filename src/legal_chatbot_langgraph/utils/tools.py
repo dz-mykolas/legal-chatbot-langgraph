@@ -1,7 +1,6 @@
 from langchain_core.messages import AIMessage
 from langchain_community.tools import tool
 from langchain_community.utilities import RequestsWrapper
-import json
 
 # Legal Fee Calculator Tool
 @tool

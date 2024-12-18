@@ -1,0 +1,7 @@
+{
+    "dependencies": ["."],
+    "graphs": {
+      "agent": "./src/legal_chatbot_langgraph/main.py:graph"
+    },
+    "env": ".env"
+}

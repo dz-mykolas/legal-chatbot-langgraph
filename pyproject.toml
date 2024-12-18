@@ -6,7 +6,6 @@ authors = [
     { name = "dz-mykolas", email = "dz.mykolas@gmail.com" }
 ]
 dependencies = [
-    "langgraph>=0.2.45",
     "langchain-openai>=0.2.6",
     "langsmith>=0.1.141",
     "six>=1.16.0",
@@ -17,6 +16,7 @@ dependencies = [
     "langchain-text-splitters>=0.3.2",
     "faiss-cpu>=1.9.0.post1",
     "colorama>=0.4.6",
+    "langgraph-cli[inmem]==0.1.55",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

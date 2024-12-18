@@ -1,7 +1,5 @@
 import openai
-from langchain_openai import ChatOpenAI
 from langchain_experimental.openai_assistant import OpenAIAssistantRunnable
-from langchain_core.messages import HumanMessage
 
 def initialize_assistant():
     assistant_id = "asst_I4EEDWIC0ZeemsBu58F5olOE"  # Your assistant ID
