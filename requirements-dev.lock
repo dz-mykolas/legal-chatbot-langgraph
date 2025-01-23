@@ -12,43 +12,54 @@
 -e file:.
 aiohappyeyeballs==2.4.4
     # via aiohttp
-aiohttp==3.11.9
+aiohttp==3.11.11
     # via langchain
     # via langchain-community
-aiosignal==1.3.1
+aiosignal==1.3.2
     # via aiohttp
 annotated-types==0.7.0
     # via pydantic
-anyio==4.6.2.post1
+anyio==4.8.0
     # via httpx
     # via openai
     # via sse-starlette
     # via starlette
     # via watchfiles
-attrs==24.2.0
+attrs==24.3.0
     # via aiohttp
 beautifulsoup4==4.12.3
     # via legal-chatbot-langgraph
-certifi==2024.8.30
+blinker==1.9.0
+    # via flask
+certifi==2024.12.14
     # via httpcore
     # via httpx
     # via requests
-charset-normalizer==3.4.0
+cffi==1.17.1
+    # via cryptography
+charset-normalizer==3.4.1
     # via requests
-click==8.1.7
+click==8.1.8
+    # via flask
     # via langgraph-cli
     # via uvicorn
 colorama==0.4.6
     # via click
     # via legal-chatbot-langgraph
     # via tqdm
-croniter==5.0.1
-    # via langgraph-api-inmem
+cryptography==43.0.3
+    # via langgraph-api
 dataclasses-json==0.6.7
     # via langchain-community
 distro==1.9.0
     # via openai
 faiss-cpu==1.9.0.post1
+    # via legal-chatbot-langgraph
+fastapi==0.115.7
+    # via legal-chatbot-langgraph
+flask==3.1.0
+    # via flask-cors
+flask-cors==5.0.0
     # via legal-chatbot-langgraph
 frozenlist==1.5.0
     # via aiohttp
@@ -58,12 +69,10 @@ greenlet==3.1.1
 h11==0.14.0
     # via httpcore
     # via uvicorn
-httpcore==1.0.6
+httpcore==1.0.7
     # via httpx
-httptools==0.6.4
-    # via langgraph-api-inmem
-httpx==0.27.2
-    # via langgraph-api-inmem
+httpx==0.28.1
+    # via langgraph-api
     # via langgraph-sdk
     # via langsmith
     # via openai
@@ -74,53 +83,61 @@ idna==3.10
     # via httpx
     # via requests
     # via yarl
-jiter==0.7.0
+itsdangerous==2.2.0
+    # via flask
+jinja2==3.1.5
+    # via flask
+jiter==0.8.2
     # via openai
 jsonpatch==1.33
     # via langchain-core
 jsonpointer==3.0.0
     # via jsonpatch
-jsonschema-rs==0.26.1
-    # via langgraph-api-inmem
-langchain==0.3.9
+jsonschema-rs==0.25.1
+    # via langgraph-api
+langchain==0.3.15
     # via langchain-community
-langchain-community==0.3.9
+langchain-community==0.3.15
     # via langchain-experimental
     # via legal-chatbot-langgraph
-langchain-core==0.3.21
+langchain-core==0.3.31
     # via langchain
     # via langchain-community
     # via langchain-experimental
     # via langchain-openai
     # via langchain-text-splitters
     # via langgraph
-    # via langgraph-api-inmem
+    # via langgraph-api
     # via langgraph-checkpoint
-langchain-experimental==0.3.3
+langchain-experimental==0.3.4
     # via legal-chatbot-langgraph
-langchain-openai==0.2.6
+langchain-openai==0.3.1
     # via legal-chatbot-langgraph
-langchain-text-splitters==0.3.2
+langchain-text-splitters==0.3.5
     # via langchain
     # via legal-chatbot-langgraph
-langgraph==0.2.56
-    # via langgraph-api-inmem
-langgraph-api-inmem==0.0.4
+langgraph==0.2.66
+    # via langgraph-api
+langgraph-api==0.0.16
     # via langgraph-cli
-langgraph-checkpoint==2.0.8
+langgraph-checkpoint==2.0.10
     # via langgraph
-    # via langgraph-api-inmem
-langgraph-cli==0.1.55
+    # via langgraph-api
+langgraph-cli==0.1.68
     # via legal-chatbot-langgraph
-langgraph-sdk==0.1.43
+langgraph-sdk==0.1.51
     # via langgraph
-langsmith==0.1.141
+    # via langgraph-api
+langsmith==0.2.11
     # via langchain
     # via langchain-community
     # via langchain-core
-    # via langgraph-api-inmem
+    # via langgraph-api
     # via legal-chatbot-langgraph
-marshmallow==3.23.1
+markupsafe==3.0.2
+    # via jinja2
+    # via werkzeug
+marshmallow==3.25.1
     # via dataclasses-json
 msgpack==1.1.0
     # via langgraph-checkpoint
@@ -129,14 +146,14 @@ multidict==6.1.0
     # via yarl
 mypy-extensions==1.0.0
     # via typing-inspect
-numpy==1.26.4
+numpy==2.2.2
     # via faiss-cpu
     # via langchain
     # via langchain-community
-openai==1.54.3
+openai==1.60.0
     # via langchain-openai
-orjson==3.10.11
-    # via langgraph-api-inmem
+orjson==3.10.15
+    # via langgraph-api
     # via langgraph-sdk
     # via langsmith
 packaging==24.2
@@ -146,25 +163,25 @@ packaging==24.2
 propcache==0.2.1
     # via aiohttp
     # via yarl
-pycurl==7.45.3
-    # via langgraph-api-inmem
-pydantic==2.9.2
+pycparser==2.22
+    # via cffi
+pydantic==2.10.5
+    # via fastapi
     # via langchain
     # via langchain-core
     # via langsmith
     # via openai
     # via pydantic-settings
-pydantic-core==2.23.4
+pydantic-core==2.27.2
     # via pydantic
-pydantic-settings==2.6.1
+pydantic-settings==2.7.1
     # via langchain-community
-python-dateutil==2.9.0.post0
-    # via croniter
+pyjwt==2.10.1
+    # via langgraph-api
 python-dotenv==1.0.1
+    # via langgraph-cli
     # via legal-chatbot-langgraph
     # via pydantic-settings
-pytz==2024.2
-    # via croniter
 pyyaml==6.0.2
     # via langchain
     # via langchain-community
@@ -179,36 +196,36 @@ requests==2.32.3
     # via tiktoken
 requests-toolbelt==1.0.0
     # via langsmith
-six==1.16.0
+six==1.17.0
     # via legal-chatbot-langgraph
-    # via python-dateutil
 sniffio==1.3.1
     # via anyio
-    # via httpx
     # via openai
 soupsieve==2.6
     # via beautifulsoup4
-sqlalchemy==2.0.35
+sqlalchemy==2.0.37
     # via langchain
     # via langchain-community
 sse-starlette==2.1.3
-    # via langgraph-api-inmem
-starlette==0.41.3
+    # via langgraph-api
+starlette==0.45.2
+    # via fastapi
+    # via langgraph-api
     # via sse-starlette
 structlog==24.4.0
-    # via langgraph-api-inmem
-tenacity==9.0.0
+    # via langgraph-api
+tenacity==8.5.0
     # via langchain
     # via langchain-community
     # via langchain-core
-    # via langgraph-api-inmem
+    # via langgraph-api
 tiktoken==0.8.0
     # via langchain-openai
-tornado==6.4.2
-    # via langgraph-api-inmem
-tqdm==4.67.0
+tqdm==4.67.1
     # via openai
 typing-extensions==4.12.2
+    # via anyio
+    # via fastapi
     # via langchain-core
     # via openai
     # via pydantic
@@ -217,12 +234,14 @@ typing-extensions==4.12.2
     # via typing-inspect
 typing-inspect==0.9.0
     # via dataclasses-json
-urllib3==2.2.3
+urllib3==2.3.0
     # via requests
-uvicorn==0.32.1
-    # via langgraph-api-inmem
+uvicorn==0.34.0
+    # via langgraph-api
     # via sse-starlette
-watchfiles==1.0.3
-    # via langgraph-api-inmem
+watchfiles==1.0.4
+    # via langgraph-api
+werkzeug==3.1.3
+    # via flask
 yarl==1.18.3
     # via aiohttp

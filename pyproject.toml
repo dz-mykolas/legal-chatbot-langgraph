@@ -16,7 +16,9 @@ dependencies = [
     "langchain-text-splitters>=0.3.2",
     "faiss-cpu>=1.9.0.post1",
     "colorama>=0.4.6",
-    "langgraph-cli[inmem]==0.1.55",
+    "flask-cors>=5.0.0",
+    "fastapi>=0.115.6",
+    "langgraph-cli[inmem]>=0.1.68",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -36,4 +38,4 @@ allow-direct-references = true
 packages = ["src/legal_chatbot_langgraph"]
 
 [tool.rye.scripts]
-start = "python src/legal_chatbot_langgraph/main.py"
+start = "langgraph dev --port 10000"
