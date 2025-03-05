@@ -66,9 +66,18 @@ frozenlist==1.5.0
     # via aiosignal
 greenlet==3.1.1
     # via sqlalchemy
+grpcio==1.70.0
+    # via grpcio-tools
+    # via qdrant-client
+grpcio-tools==1.70.0
+    # via qdrant-client
 h11==0.14.0
     # via httpcore
     # via uvicorn
+h2==4.2.0
+    # via httpx
+hpack==4.1.0
+    # via h2
 httpcore==1.0.7
     # via httpx
 httpx==0.28.1
@@ -76,8 +85,11 @@ httpx==0.28.1
     # via langgraph-sdk
     # via langsmith
     # via openai
+    # via qdrant-client
 httpx-sse==0.4.0
     # via langchain-community
+hyperframe==6.1.0
+    # via h2
 idna==3.10
     # via anyio
     # via httpx
@@ -105,6 +117,7 @@ langchain-core==0.3.31
     # via langchain-community
     # via langchain-experimental
     # via langchain-openai
+    # via langchain-qdrant
     # via langchain-text-splitters
     # via langgraph
     # via langgraph-api
@@ -112,6 +125,8 @@ langchain-core==0.3.31
 langchain-experimental==0.3.4
     # via legal-chatbot-langgraph
 langchain-openai==0.3.1
+    # via legal-chatbot-langgraph
+langchain-qdrant==0.2.0
     # via legal-chatbot-langgraph
 langchain-text-splitters==0.3.5
     # via langchain
@@ -150,6 +165,7 @@ numpy==2.2.2
     # via faiss-cpu
     # via langchain
     # via langchain-community
+    # via qdrant-client
 openai==1.60.0
     # via langchain-openai
 orjson==3.10.15
@@ -160,18 +176,24 @@ packaging==24.2
     # via faiss-cpu
     # via langchain-core
     # via marshmallow
+portalocker==2.10.1
+    # via qdrant-client
 propcache==0.2.1
     # via aiohttp
     # via yarl
+protobuf==5.29.3
+    # via grpcio-tools
 pycparser==2.22
     # via cffi
 pydantic==2.10.5
     # via fastapi
     # via langchain
     # via langchain-core
+    # via langchain-qdrant
     # via langsmith
     # via openai
     # via pydantic-settings
+    # via qdrant-client
 pydantic-core==2.27.2
     # via pydantic
 pydantic-settings==2.7.1
@@ -182,10 +204,14 @@ python-dotenv==1.0.1
     # via langgraph-cli
     # via legal-chatbot-langgraph
     # via pydantic-settings
+pywin32==308
+    # via portalocker
 pyyaml==6.0.2
     # via langchain
     # via langchain-community
     # via langchain-core
+qdrant-client==1.13.2
+    # via langchain-qdrant
 regex==2024.11.6
     # via tiktoken
 requests==2.32.3
@@ -196,6 +222,8 @@ requests==2.32.3
     # via tiktoken
 requests-toolbelt==1.0.0
     # via langsmith
+setuptools==75.8.0
+    # via grpcio-tools
 six==1.17.0
     # via legal-chatbot-langgraph
 sniffio==1.3.1
@@ -235,6 +263,7 @@ typing-extensions==4.12.2
 typing-inspect==0.9.0
     # via dataclasses-json
 urllib3==2.3.0
+    # via qdrant-client
     # via requests
 uvicorn==0.34.0
     # via langgraph-api

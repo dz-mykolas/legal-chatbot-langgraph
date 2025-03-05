@@ -1,8 +1,7 @@
+# src/legal_chatbot_langgraph/utils/tools.py
 import json
 from langchain_community.tools import tool
-from langchain_community.utilities import RequestsWrapper
 import requests
-from bs4 import BeautifulSoup
 
 # Legal Fee Calculator Tool
 @tool
