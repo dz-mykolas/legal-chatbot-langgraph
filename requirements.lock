@@ -31,6 +31,8 @@ beautifulsoup4==4.12.3
     # via legal-chatbot-langgraph
 blinker==1.9.0
     # via flask
+cachetools==5.5.2
+    # via google-auth
 certifi==2024.12.14
     # via httpcore
     # via httpx
@@ -57,6 +59,8 @@ faiss-cpu==1.9.0.post1
     # via legal-chatbot-langgraph
 fastapi==0.115.7
     # via legal-chatbot-langgraph
+filetype==1.2.0
+    # via langchain-google-genai
 flask==3.1.0
     # via flask-cors
 flask-cors==5.0.0
@@ -64,11 +68,25 @@ flask-cors==5.0.0
 frozenlist==1.5.0
     # via aiohttp
     # via aiosignal
+google-ai-generativelanguage==0.6.17
+    # via langchain-google-genai
+google-api-core==2.24.2
+    # via google-ai-generativelanguage
+google-auth==2.38.0
+    # via google-ai-generativelanguage
+    # via google-api-core
+googleapis-common-protos==1.69.2
+    # via google-api-core
+    # via grpcio-status
 greenlet==3.1.1
     # via sqlalchemy
 grpcio==1.70.0
+    # via google-api-core
+    # via grpcio-status
     # via grpcio-tools
     # via qdrant-client
+grpcio-status==1.70.0
+    # via google-api-core
 grpcio-tools==1.70.0
     # via qdrant-client
 h11==0.14.0
@@ -112,10 +130,11 @@ langchain==0.3.15
 langchain-community==0.3.15
     # via langchain-experimental
     # via legal-chatbot-langgraph
-langchain-core==0.3.31
+langchain-core==0.3.51
     # via langchain
     # via langchain-community
     # via langchain-experimental
+    # via langchain-google-genai
     # via langchain-openai
     # via langchain-qdrant
     # via langchain-text-splitters
@@ -123,6 +142,8 @@ langchain-core==0.3.31
     # via langgraph-api
     # via langgraph-checkpoint
 langchain-experimental==0.3.4
+    # via legal-chatbot-langgraph
+langchain-google-genai==2.1.2
     # via legal-chatbot-langgraph
 langchain-openai==0.3.1
     # via legal-chatbot-langgraph
@@ -181,14 +202,28 @@ portalocker==2.10.1
 propcache==0.2.1
     # via aiohttp
     # via yarl
+proto-plus==1.26.1
+    # via google-ai-generativelanguage
+    # via google-api-core
 protobuf==5.29.3
+    # via google-ai-generativelanguage
+    # via google-api-core
+    # via googleapis-common-protos
+    # via grpcio-status
     # via grpcio-tools
+    # via proto-plus
+pyasn1==0.6.1
+    # via pyasn1-modules
+    # via rsa
+pyasn1-modules==0.4.2
+    # via google-auth
 pycparser==2.22
     # via cffi
 pydantic==2.10.5
     # via fastapi
     # via langchain
     # via langchain-core
+    # via langchain-google-genai
     # via langchain-qdrant
     # via langsmith
     # via openai
@@ -215,6 +250,7 @@ qdrant-client==1.13.2
 regex==2024.11.6
     # via tiktoken
 requests==2.32.3
+    # via google-api-core
     # via langchain
     # via langchain-community
     # via langsmith
@@ -222,6 +258,8 @@ requests==2.32.3
     # via tiktoken
 requests-toolbelt==1.0.0
     # via langsmith
+rsa==4.9
+    # via google-auth
 setuptools==75.8.0
     # via grpcio-tools
 six==1.17.0

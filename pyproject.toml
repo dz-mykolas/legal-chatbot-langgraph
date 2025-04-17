@@ -20,6 +20,7 @@ dependencies = [
     "fastapi>=0.115.6",
     "langgraph-cli[inmem]>=0.1.68",
     "langchain-qdrant>=0.2.0",
+    "langchain-google-genai>=2.1.2",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
