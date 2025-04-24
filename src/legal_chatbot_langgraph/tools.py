@@ -2,7 +2,7 @@ import json
 from typing import Any, Dict, Literal, Optional
 from langchain_core.tools import tool
 from qdrant_client import models
-from src.legal_chatbot_langgraph.init import logger, client, embeddings
+from legal_chatbot_langgraph.qdrant_config import logger, client, embeddings
 import json
 from typing import Literal, Optional, Dict, Any, List
 from langchain_core.tools import tool
