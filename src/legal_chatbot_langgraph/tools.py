@@ -1,15 +1,18 @@
+from pydantic import BaseModel, Field
 import json
-from typing import Any, Dict, Literal, Optional
-from langchain_core.tools import tool
-from qdrant_client import models
-from legal_chatbot_langgraph.qdrant_config import logger, client, embeddings
-import json
-from typing import Literal, Optional, Dict, Any, List
+from typing import List
 from langchain_core.tools import tool
 from qdrant_client import models
 
-@tool
+from legal_chatbot_langgraph.qdrant_config import logger, client, embeddings
+
+class RetrieveRelevantChunksInput(BaseModel):
+    query: str = Field(..., description="Text query to search for.")
+    k: int = Field(5, description="How many chunks to return (keep default 5 for first unless expanding search).")
+
+@tool(args_schema=RetrieveRelevantChunksInput, description="Retrieve relevant chunks from the 'my_chunks' collection based on a text query.")
 def retrieve_relevant_chunks(query: str, k: int = 5) -> str:
+    """Return the top-k chunks from `my_chunks` most relevant to the query."""
     """
     Searches the 'my_chunks' collection based on a text query using qdrant-client.
     Returns a list of chunk details, including their IDs, content, score,
@@ -19,6 +22,10 @@ def retrieve_relevant_chunks(query: str, k: int = 5) -> str:
         query: The search query string.
         k: The number of chunk results to retrieve.
     """
+
+    # return dummy data for testing
+    # return json.dumps([{"chunk_id": "123", "score": 0.95, "content": "Returned dummy data for testing, choose randomly to continue calling this function or not", "chunk_metadata": {}}])
+
     collection_name = "my_chunks"
     logger.info(f"--- Tool Call: retrieve_relevant_chunks ---")
     logger.info(f"Query: {query}")
@@ -79,8 +86,12 @@ def retrieve_relevant_chunks(query: str, k: int = 5) -> str:
         error_msg = f"Error during chunk retrieval: {e}"
         logger.error(error_msg, exc_info=True)
         return json.dumps([{"error": error_msg}])
+    
+class RetrieveDocsInput(BaseModel):
+    chunk_ids: List[str] = Field(..., description="Chunk UUIDs previously retrieved.")
+    k: int = Field(10, description="Maximum number of parent docs to return.")
 
-@tool
+@tool(args_schema=RetrieveDocsInput)
 def retrieve_documents_by_chunk_ids(
     chunk_ids: List[str],
     k: int = 10
@@ -164,8 +175,11 @@ def retrieve_documents_by_chunk_ids(
         error_msg = f"Error during documents retrieval by chunk IDs: {e}"
         logger.error(error_msg, exc_info=True)
         return json.dumps([{"error": error_msg}])
-    
-@tool
+
+class RetrieveChunksByIDInput(BaseModel):
+    chunk_ids: List[str] = Field(..., description="Exact chunk UUIDs to fetch.")
+
+@tool(args_schema=RetrieveChunksByIDInput)
 def retrieve_chunks_by_ids(chunk_ids: List[str]) -> str:
     """
     Retrieves specific chunks from the 'my_chunks' collection by their exact IDs.
@@ -174,7 +188,7 @@ def retrieve_chunks_by_ids(chunk_ids: List[str]) -> str:
     Args:
         chunk_ids: A list of chunk IDs to retrieve.
     """
-    collection_name = "my_chunks" # This tool specifically targets the chunks collection
+    collection_name = "my_chunks"
     logger.info(f"--- Tool Call: retrieve_chunks_by_ids ---")
     logger.info(f"Chunk IDs to retrieve: {chunk_ids}")
     logger.info(f"Target Collection: {collection_name}")
@@ -231,3 +245,10 @@ def retrieve_chunks_by_ids(chunk_ids: List[str]) -> str:
         logger.error(error_msg, exc_info=True)
         return json.dumps([{"error": error_msg}])
     
+@tool(description="Get the current time in ISO format.")
+def get_current_time() -> str:
+    """
+    Returns the current time in ISO format.
+    """
+    from datetime import datetime
+    return datetime.now().isoformat()

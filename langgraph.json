@@ -1,7 +1,7 @@
 {
     "dependencies": ["."],
     "graphs": {
-      "agent": "./src/legal_chatbot_langgraph/graph_builder.py:graph"
+      "agent": "./src/legal_chatbot_langgraph/graphs/retrieval_graph.py:retrieval_graph"
     },
     "env": ".env"
 }
